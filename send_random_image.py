@@ -1,7 +1,11 @@
-from telegram import Bot
+import os
 import requests
+from telegram import Bot
+from dotenv import load_dotenv
 
-bot = Bot(token='5350323727:AAH7JCrAGwAtwSiM983TJ6FxS3k1trcIDHU')
+load_dotenv()
+secret_token = os.getenv('TOKEN')
+bot = Bot(token=secret_token)
 URL = 'https://api.thecatapi.com/v1/images/search'
 chat_id = 672534822
 
