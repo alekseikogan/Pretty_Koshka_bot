@@ -1,0 +1,4 @@
+requests
+pyrogram
+python-telegram-bot
+python-dotenv
