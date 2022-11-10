@@ -8,11 +8,17 @@ from dotenv import load_dotenv
 load_dotenv()
 secret_token = os.getenv('TOKEN')
 updater = Updater(token=secret_token)
-URL = 'https://api.thecatapi.com/v1/images/search'
+URL = ''
 
 
 def get_new_image():
-    response = requests.get(URL).json()
+    try:
+        response = requests.get(URL)
+    except Exception as error:
+        print(error)
+        new_url = 'https://api.thedogapi.com/v1/images/search'
+        response = requests.get(new_url)
+    response = response.json()
     random_cat = response[0].get('url')
     return random_cat
 
@@ -29,7 +35,7 @@ def say_hello(update, context):
     chat = update.effective_chat
     context.bot.send_message(
         chat_id=chat.id,
-        text='Ты написал мне, но еще слишком тупенький для умного ответа...'
+        text='Ты пишешь мне, но я еще слишком тупенький для умного ответа...'
     )
 
 
