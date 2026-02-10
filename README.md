@@ -25,5 +25,3 @@
 - Python 3.x  
 - `python-telegram-bot` для взаимодействия с Telegram API  
 - Requests / aiohttp для работы с внешними API
-- 
----
